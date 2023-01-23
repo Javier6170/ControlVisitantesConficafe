@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DashBoard - Actions</title>
+    <link rel="icon" th:href="@{/imagenes/logo.png}"/>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<section th:fragment="dashboardActions">
+    <div class="row">
+        <div class="col-6 m-2"> <section th:replace="layout/totalVisitantes :: totalVisitantes"></section></div>
+        <div class="sectionActions">
+            <section th:replace="layout/agregarCliente :: agregarCliente"></section>
+            <section th:replace="layout/agregarCliente :: agregarCliente"></section>
+            <section th:replace="layout/agregarCliente :: agregarCliente"></section>
+        </div> 
+    </div>
+<!-- <div class="col-6"><section th:replace="layout/listadoClientes :: listadoClientes"></section></div> -->
+   
+    
+</section>
+</body>
+</html>
