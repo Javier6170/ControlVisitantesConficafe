@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" >
 <head >
     <meta charset="UTF-8">
     <title>DahsBoard</title>
@@ -24,15 +24,15 @@
                     </a>
                   </h6>
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">
+                  <a class="nav-link active" aria-current="page" th:href="@{'/home'}">
                     <span data-feather="home" class="align-text-bottom"></span>
                     Home
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" th:href="@{'/agregarUsuario'}">
                     <span data-feather="file" class="align-text-bottom"></span>
-                    Agregar usuario
+                    Agregar visitante
                   </a>
                 </li>
               </ul>
@@ -45,7 +45,7 @@
               </h6>
               <ul class="nav flex-column mb-2">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link" th:href="@{'/visitantes'}">
                     <span data-feather="file-text" class="align-text-bottom"></span>
                     Visitantes
                   </a>
@@ -60,9 +60,9 @@
               
             </div>
             <div class="contentDashboard">
-
+                <section th:replace="layout/dashboardActions :: dashboardActions"></section>
             </div>
-            <section th:replace="layout/dashboardActions :: dashboardActions"></section>  
+            
         </main>
 
         </div>
