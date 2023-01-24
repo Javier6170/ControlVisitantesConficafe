@@ -1,77 +1,36 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" >
-<head >
-    <meta charset="UTF-8">
-    <title>DahsBoard</title>
-    <link rel="icon" th:href="@{/imagenes/logo.png}"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
-    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>DahsBoard</title>
+  <link rel="icon" th:href="@{/imagenes/logo.png}" />
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" href="/css/stylesDashboardMain.css">
 </head>
+
 <body>
-<section th:fragment="dashboard" >
-      <div class="container-fluid">
-        <div class="row">
-          <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-            <div class="position-sticky pt-3 sidebar-sticky">
-              <ul class="nav flex-column">
-                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                    <span>Acciones</span>
-                    <a class="link-secondary" href="#" aria-label="Add a new report">
-                      <span data-feather="plus-circle" class="align-text-bottom"></span>
-                    </a>
-                  </h6>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" th:href="@{'/home'}">
-                    <span data-feather="home" class="align-text-bottom"></span>
-                    Home
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" th:href="@{'/agregarUsuario'}">
-                    <span data-feather="file" class="align-text-bottom"></span>
-                    Agregar visitante
-                  </a>
-                </li>
-              </ul>
-      
-              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted text-uppercase">
-                <span>Informacion</span>
-                <a class="link-secondary" href="#" aria-label="Add a new report">
-                  <span data-feather="plus-circle" class="align-text-bottom"></span>
-                </a>
-              </h6>
-              <ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                  <a class="nav-link" th:href="@{'/visitantes'}">
-                    <span data-feather="file-text" class="align-text-bottom"></span>
-                    Visitantes
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-      
-          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              <h1 class="h2">Home</h1>
-              
-            </div>
-            <div class="contentDashboard">
-                <section th:fragment="dashBoardContent">
-                    <section th:replace="layout/dashboardActions :: dashboardActions"></section>
-                </section>
-            </div>
-            
-        </main>
-
+  <section th:fragment="dashboard">
+    <h1 class="text-center">Control de visitantes conficafe</h1>
+    <div class="container m-5">
+      <div class="row">
+        <div class="col-6">
+          <section th:replace="layout/totalVisitantes :: totalVisitantes"></section>
+          
         </div>
-
+        <div class="col-6">
+          <div class="text-center">
+            <a th:href="@{/agregarUsuario}" class="btn btn-primary m-2">Agregar Usuario</a>
+            <a th:href="@{/listaUsuariosHoy}" class="btn btn-primary m-2">Lista de usuarios hoy</a>
+            <a th:href="@{/historialVisitantes}" class="btn btn-primary">Historial visitantes</a>
+          </div>
+        </div>
       </div>
-    
-</section>
+    </div>
+  </section>
 
 </body>
+
 </html>

@@ -33,6 +33,8 @@ public class Persona {
     private String piso;
     
     private String telefono;
+
+    private String descripcion;
     
     
     

@@ -3,10 +3,13 @@ package mx.com.gm.servicio;
 
 
 import mx.com.gm.domain.Persona;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface PersonaService {
+@Repository
+public interface PersonaService extends JpaRepository<Persona, Long> {
     
     public List<Persona> listarPersonas();
     

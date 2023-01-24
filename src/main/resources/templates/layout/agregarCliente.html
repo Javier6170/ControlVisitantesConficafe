@@ -9,25 +9,26 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
     <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}" />
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script src="../js/tipoDispositivo.js"></script>
 </head>
 
 <body>
-    
+
     <section th:fragment="agregarCliente">
-        <div id="agregarCliente">
-            <form th:action="@{/guardar}" th:object="${persona}" method="POST" >
+        <h1 class="text-center">Agregar nuevo visitante</h1>
+        <div class="m-5" id="agregarCliente">
+            <form th:action="@{/guardar}" th:object="${persona}" method="POST">
                 <div class="form-group">
                     <label for="nombre" th:text="#{persona.identificacion}">Identificación</label>
-                    <input type="number" class="form-control" name="identificacion" required="true" maxlength="10"
+                    <input type="text"
+                        onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+                        class="form-control" name="identificacion" required="true" maxlength="11"
                         placeholder="Identificacion" autofocus="">
                 </div>
                 <div class="form-group">
-                    <label for="fecha" th:text="#{persona.fecha}">Fecha</label>
-                    <input type="date" class="form-control" name="fecha" maxlength="10">
-                </div>
-                <div class="form-group">
                     <label for="piso" th:text="#{persona.piso}">Piso De Visitante</label>
-                    <input type="search" list="pisos" class="form-control" name="piso" required="true">
+                    <input type="search" onkeydown="return false" list="pisos" class="form-control" name="piso"
+                        required="true">
                     <datalist id="pisos">
                         <option value="Piso 1">
                         <option value="Piso 2">
@@ -54,13 +55,13 @@
                 <div class="form-group">
                     <label for="telefono" th:text="#{persona.equipo}">Tiene Equipo</label>
                     <br>
-                    <input type="radio" name="equipo" required="true">
+                    <input type="radio" name="equipo" required="true" value="si">
                     <label for="equipo">Si</label>
-                    <input type="radio" name="equipo" required="true">
+                    <input type="radio" name="equipo" required="true" value="no" checked>
                     <label for="equipo">No</label>
                 </div>
                 <div class="form-group">
-                    <label for="piso" th:text="#{persona.tipo}">Tipo de Dispositivo</label>
+                    <label for="piso" >Tipo de Dispositivo</label>
                     <input type="search" list="tipos" class="form-control" name="tipo">
                     <datalist id="tipos">
                         <option value="Portatil">
@@ -70,7 +71,11 @@
                         <option value="Otros...">
                     </datalist>
                 </div>
-
+                <div class="form-group">
+                    <label for="telefono">Observaciones</label>
+                    <textarea type="text" class="form-control" name="descripcion"
+                        placeholder="Escribe una breve descripcion del visitante, por ejemplo: trae algun equipo, esta preguntando por que persona"></textarea>
+                </div>
                 <button class="btn btn-primary" type="submit" th:text="#{accion.guardar}">Guardar</button>
             </form>
         </div>
